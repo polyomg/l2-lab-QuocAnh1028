@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rectangle</title>
+</head>
+<body>
+    <h1>Hình chữ nhật</h1>
+    <form action="/rectangle/caculate" method="post">
+    <label>Chiều dài: </label>
+    <input type="text" name="length"><br><br>
+    <label>Chiều rông: </label>
+    <input type="text" name="width"><br><br>
+
+    <button type="submit">Tính</button> <br><br><br>
+        <h2>Chu vi: </h2>
+        <p th:text="${perimeter}">
+
+        <h2>Diện tích: </h2>
+        <p th:text="${area}">
+    </form>
+    <h1 style="color: red" th:text="${message}"></h1>
+</body>
+</html>
