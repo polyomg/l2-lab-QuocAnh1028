@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Array</title>
+</head>
+<body>
+    <h2>Form nhập sản phẩm</h2>
+
+    <form action="/arrayproduct/save" method="post">
+        <label>Name: </label>
+        <input name="name" th:value="${prod.name}"><br><br>
+        <label>Price: </label>
+        <input name="price" th:value="${prod.price}"><br><br>
+        <button>Save</button>
+
+        <h3>Sản phẩm đang có: </h3>
+        <table>
+            <tr>
+                <td th:text="${prod.name}"></td>
+                <td th:text="${prod.price}"></td>
+            </tr>
+        </table>
+        <br><br>
+        <h3>Sản phẩm mới: </h3>
+        <table>
+            <tr>
+                <td th:text="${save.name}"></td>
+                <td th:text="${save.price}"></td>
+            </tr>
+        </table>
+        <br><br>
+        <h3>Danh sách sản phẩm</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>Tên</th>
+                <th>Giá</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Mỗi sản phẩm là MỘT hàng -->
+            <tr th:each="pro : ${items}">
+                <td th:text="${pro.name}">Tên</td>
+                <td th:text="${pro.price}">Giá</td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+
+
+</body>
+</html>
